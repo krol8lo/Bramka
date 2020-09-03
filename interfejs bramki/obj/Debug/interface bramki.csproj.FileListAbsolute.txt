@@ -1,0 +1,30 @@
+C:\Users\user\Desktop\projek na fizyke\interface bramki\bin\Debug\interface bramki.exe.config
+C:\Users\user\Desktop\projek na fizyke\interface bramki\bin\Debug\interface bramki.exe
+C:\Users\user\Desktop\projek na fizyke\interface bramki\bin\Debug\interface bramki.pdb
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki.csprojAssemblyReference.cache
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\MainWindow.g.cs
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\App.g.cs
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki_MarkupCompile.cache
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki_MarkupCompile.lref
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\MainWindow.baml
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki.g.resources
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface_bramki.Properties.Resources.resources
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki.csproj.GenerateResource.cache
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki.exe
+C:\Users\user\Desktop\projek na fizyke\interface bramki\obj\Debug\interface bramki.pdb
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\bin\Debug\interface bramki.exe.config
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\bin\Debug\interface bramki.exe
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\bin\Debug\interface bramki.pdb
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki.csprojAssemblyReference.cache
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\MainWindow.g.cs
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\App.g.cs
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki_MarkupCompile.cache
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki_MarkupCompile.lref
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\MainWindow.baml
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki.g.resources
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface_bramki.Properties.Resources.resources
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki.csproj.GenerateResource.cache
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki.exe
+C:\Users\user\Desktop\projek na fizyke\interfejs bramki\obj\Debug\interface bramki.pdb

@@ -1,0 +1,973 @@
+
+progaram bramki c++.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000004c4  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000538  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000034  00800060  00800060  00000538  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000538  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000568  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000d0  00000000  00000000  000005a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000014e2  00000000  00000000  00000674  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000007cf  00000000  00000000  00001b56  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000073a  00000000  00000000  00002325  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000218  00000000  00000000  00002a60  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006ce  00000000  00000000  00002c78  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000595  00000000  00000000  00003346  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000c0  00000000  00000000  000038db  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	13 c0       	rjmp	.+38     	; 0x28 <__ctors_end>
+   2:	2c c0       	rjmp	.+88     	; 0x5c <__bad_interrupt>
+   4:	2b c0       	rjmp	.+86     	; 0x5c <__bad_interrupt>
+   6:	df c1       	rjmp	.+958    	; 0x3c6 <__vector_3>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	fc c1       	rjmp	.+1016   	; 0x410 <__vector_11>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_start>:
+  26:	17 02       	muls	r17, r23
+
+00000028 <__ctors_end>:
+  28:	11 24       	eor	r1, r1
+  2a:	1f be       	out	0x3f, r1	; 63
+  2c:	cf e5       	ldi	r28, 0x5F	; 95
+  2e:	d4 e0       	ldi	r29, 0x04	; 4
+  30:	de bf       	out	0x3e, r29	; 62
+  32:	cd bf       	out	0x3d, r28	; 61
+
+00000034 <__do_clear_bss>:
+  34:	20 e0       	ldi	r18, 0x00	; 0
+  36:	a0 e6       	ldi	r26, 0x60	; 96
+  38:	b0 e0       	ldi	r27, 0x00	; 0
+  3a:	01 c0       	rjmp	.+2      	; 0x3e <.do_clear_bss_start>
+
+0000003c <.do_clear_bss_loop>:
+  3c:	1d 92       	st	X+, r1
+
+0000003e <.do_clear_bss_start>:
+  3e:	a4 39       	cpi	r26, 0x94	; 148
+  40:	b2 07       	cpc	r27, r18
+  42:	e1 f7       	brne	.-8      	; 0x3c <.do_clear_bss_loop>
+
+00000044 <__do_global_ctors>:
+  44:	10 e0       	ldi	r17, 0x00	; 0
+  46:	c4 e1       	ldi	r28, 0x14	; 20
+  48:	d0 e0       	ldi	r29, 0x00	; 0
+  4a:	03 c0       	rjmp	.+6      	; 0x52 <__do_global_ctors+0xe>
+  4c:	21 97       	sbiw	r28, 0x01	; 1
+  4e:	fe 01       	movw	r30, r28
+  50:	31 d2       	rcall	.+1122   	; 0x4b4 <__tablejump2__>
+  52:	c3 31       	cpi	r28, 0x13	; 19
+  54:	d1 07       	cpc	r29, r17
+  56:	d1 f7       	brne	.-12     	; 0x4c <__do_global_ctors+0x8>
+  58:	67 d0       	rcall	.+206    	; 0x128 <main>
+  5a:	32 c2       	rjmp	.+1124   	; 0x4c0 <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <_ZNV11TimeCounter9incrementEv>:
+}
+
+uint8_t uartReciveByte()
+{
+	return (uint8_t)UDR;
+}
+  5e:	fc 01       	movw	r30, r24
+  60:	20 81       	ld	r18, Z
+  62:	31 81       	ldd	r19, Z+1	; 0x01
+  64:	42 81       	ldd	r20, Z+2	; 0x02
+  66:	53 81       	ldd	r21, Z+3	; 0x03
+  68:	64 81       	ldd	r22, Z+4	; 0x04
+  6a:	75 81       	ldd	r23, Z+5	; 0x05
+  6c:	86 81       	ldd	r24, Z+6	; 0x06
+  6e:	97 81       	ldd	r25, Z+7	; 0x07
+  70:	a1 e0       	ldi	r26, 0x01	; 1
+  72:	14 d2       	rcall	.+1064   	; 0x49c <__adddi3_s8>
+  74:	20 83       	st	Z, r18
+  76:	31 83       	std	Z+1, r19	; 0x01
+  78:	42 83       	std	Z+2, r20	; 0x02
+  7a:	53 83       	std	Z+3, r21	; 0x03
+  7c:	64 83       	std	Z+4, r22	; 0x04
+  7e:	75 83       	std	Z+5, r23	; 0x05
+  80:	86 83       	std	Z+6, r24	; 0x06
+  82:	97 83       	std	Z+7, r25	; 0x07
+  84:	08 95       	ret
+
+00000086 <_ZN5TimerC1Ev>:
+  86:	fc 01       	movw	r30, r24
+  88:	10 82       	st	Z, r1
+  8a:	11 82       	std	Z+1, r1	; 0x01
+  8c:	12 82       	std	Z+2, r1	; 0x02
+  8e:	13 82       	std	Z+3, r1	; 0x03
+  90:	14 82       	std	Z+4, r1	; 0x04
+  92:	15 82       	std	Z+5, r1	; 0x05
+  94:	16 82       	std	Z+6, r1	; 0x06
+  96:	17 82       	std	Z+7, r1	; 0x07
+  98:	10 86       	std	Z+8, r1	; 0x08
+  9a:	11 86       	std	Z+9, r1	; 0x09
+  9c:	12 86       	std	Z+10, r1	; 0x0a
+  9e:	13 86       	std	Z+11, r1	; 0x0b
+  a0:	08 95       	ret
+
+000000a2 <_ZN3Led2onEv>:
+  a2:	fc 01       	movw	r30, r24
+  a4:	a1 81       	ldd	r26, Z+1	; 0x01
+  a6:	b2 81       	ldd	r27, Z+2	; 0x02
+  a8:	21 e0       	ldi	r18, 0x01	; 1
+  aa:	30 e0       	ldi	r19, 0x00	; 0
+  ac:	00 80       	ld	r0, Z
+  ae:	02 c0       	rjmp	.+4      	; 0xb4 <_ZN3Led2onEv+0x12>
+  b0:	22 0f       	add	r18, r18
+  b2:	33 1f       	adc	r19, r19
+  b4:	0a 94       	dec	r0
+  b6:	e2 f7       	brpl	.-8      	; 0xb0 <_ZN3Led2onEv+0xe>
+  b8:	8c 91       	ld	r24, X
+  ba:	28 2b       	or	r18, r24
+  bc:	2c 93       	st	X, r18
+  be:	13 82       	std	Z+3, r1	; 0x03
+  c0:	08 95       	ret
+
+000000c2 <_ZN3Led3offEv>:
+  c2:	fc 01       	movw	r30, r24
+  c4:	a1 81       	ldd	r26, Z+1	; 0x01
+  c6:	b2 81       	ldd	r27, Z+2	; 0x02
+  c8:	21 e0       	ldi	r18, 0x01	; 1
+  ca:	30 e0       	ldi	r19, 0x00	; 0
+  cc:	00 80       	ld	r0, Z
+  ce:	02 c0       	rjmp	.+4      	; 0xd4 <_ZN3Led3offEv+0x12>
+  d0:	22 0f       	add	r18, r18
+  d2:	33 1f       	adc	r19, r19
+  d4:	0a 94       	dec	r0
+  d6:	e2 f7       	brpl	.-8      	; 0xd0 <_ZN3Led3offEv+0xe>
+  d8:	20 95       	com	r18
+  da:	8c 91       	ld	r24, X
+  dc:	28 23       	and	r18, r24
+  de:	2c 93       	st	X, r18
+  e0:	81 e0       	ldi	r24, 0x01	; 1
+  e2:	83 83       	std	Z+3, r24	; 0x03
+  e4:	08 95       	ret
+
+000000e6 <_ZN3Led11switchStateEv>:
+  e6:	fc 01       	movw	r30, r24
+  e8:	93 81       	ldd	r25, Z+3	; 0x03
+  ea:	91 11       	cpse	r25, r1
+  ec:	03 c0       	rjmp	.+6      	; 0xf4 <_ZN3Led11switchStateEv+0xe>
+  ee:	cf 01       	movw	r24, r30
+  f0:	e8 df       	rcall	.-48     	; 0xc2 <_ZN3Led3offEv>
+  f2:	08 95       	ret
+  f4:	91 30       	cpi	r25, 0x01	; 1
+  f6:	11 f4       	brne	.+4      	; 0xfc <_ZN3Led11switchStateEv+0x16>
+  f8:	cf 01       	movw	r24, r30
+  fa:	d3 df       	rcall	.-90     	; 0xa2 <_ZN3Led2onEv>
+  fc:	08 95       	ret
+
+000000fe <_ZN3Pin9readStateEv>:
+  fe:	dc 01       	movw	r26, r24
+ 100:	11 96       	adiw	r26, 0x01	; 1
+ 102:	ed 91       	ld	r30, X+
+ 104:	fc 91       	ld	r31, X
+ 106:	12 97       	sbiw	r26, 0x02	; 2
+ 108:	20 81       	ld	r18, Z
+ 10a:	30 e0       	ldi	r19, 0x00	; 0
+ 10c:	f9 01       	movw	r30, r18
+ 10e:	0c 90       	ld	r0, X
+ 110:	02 c0       	rjmp	.+4      	; 0x116 <_ZN3Pin9readStateEv+0x18>
+ 112:	f5 95       	asr	r31
+ 114:	e7 95       	ror	r30
+ 116:	0a 94       	dec	r0
+ 118:	e2 f7       	brpl	.-8      	; 0x112 <_ZN3Pin9readStateEv+0x14>
+ 11a:	cf 01       	movw	r24, r30
+ 11c:	81 70       	andi	r24, 0x01	; 1
+ 11e:	08 95       	ret
+
+00000120 <_Z12uartSendByteh>:
+
+void uartSendByte(uint8_t text)
+{
+	while(!(UCSRA & (1 << UDRE)));
+ 120:	5d 9b       	sbis	0x0b, 5	; 11
+ 122:	fe cf       	rjmp	.-4      	; 0x120 <_Z12uartSendByteh>
+	UDR = text;
+ 124:	8c b9       	out	0x0c, r24	; 12
+ 126:	08 95       	ret
+
+00000128 <main>:
+/*								   MAIN									*/
+//////////////////////////////////////////////////////////////////////////
+
+int main(void)
+{
+	byte_buff = 0;
+ 128:	10 92 92 00 	sts	0x0092, r1	; 0x800092 <byte_buff>
+	
+	//ports set up
+	DDRB = 0x00;
+ 12c:	17 ba       	out	0x17, r1	; 23
+	DDRC = (1 << PC2) | (1 << PC3);
+ 12e:	8c e0       	ldi	r24, 0x0C	; 12
+ 130:	84 bb       	out	0x14, r24	; 20
+	DDRD = (1 << PD1) | (1 << PD3) | (1 << PD4);
+ 132:	8a e1       	ldi	r24, 0x1A	; 26
+ 134:	81 bb       	out	0x11, r24	; 17
+	
+	//timer set up
+	TCCR2 = (1 << WGM21) | (1 << COM21) | (1 << CS22) | (1 << CS20);					//CTC MODE | Clear timer on Compare Match | clock / 128
+ 136:	8d e2       	ldi	r24, 0x2D	; 45
+ 138:	85 bd       	out	0x25, r24	; 37
+	OCR2 = 124;																			//
+ 13a:	8c e7       	ldi	r24, 0x7C	; 124
+ 13c:	83 bd       	out	0x23, r24	; 35
+	
+	//uart set up																		//
+	UCSRB |= (1 << RXEN) | (1 << TXEN) | (1 << RXCIE);									//
+ 13e:	8a b1       	in	r24, 0x0a	; 10
+ 140:	88 69       	ori	r24, 0x98	; 152
+ 142:	8a b9       	out	0x0a, r24	; 10
+	UBRRL = 3;																			//baud rate 250k (error 0.0% lol f_osc = 16.0000MHz)
+ 144:	93 e0       	ldi	r25, 0x03	; 3
+ 146:	99 b9       	out	0x09, r25	; 9
+	
+	//interrupts
+	//TIMSK |= (1 << OCIE2);															//timer2 interrupt enable
+	sei();																				//global interrupts enable
+ 148:	78 94       	sei
+	this->pin = 0;
+}
+
+void Led::setup(volatile uint8_t &reg_buff, uint8_t pin_buff)
+{
+	this->reg = (uint8_t*)&reg_buff;
+ 14a:	e6 e7       	ldi	r30, 0x76	; 118
+ 14c:	f0 e0       	ldi	r31, 0x00	; 0
+ 14e:	22 e3       	ldi	r18, 0x32	; 50
+ 150:	30 e0       	ldi	r19, 0x00	; 0
+ 152:	32 83       	std	Z+2, r19	; 0x02
+ 154:	21 83       	std	Z+1, r18	; 0x01
+	this->pin = pin_buff;
+ 156:	84 e0       	ldi	r24, 0x04	; 4
+ 158:	80 83       	st	Z, r24
+	state = led_off;
+ 15a:	81 e0       	ldi	r24, 0x01	; 1
+ 15c:	83 83       	std	Z+3, r24	; 0x03
+	this->pin = 0;
+}
+
+void Led::setup(volatile uint8_t &reg_buff, uint8_t pin_buff)
+{
+	this->reg = (uint8_t*)&reg_buff;
+ 15e:	e2 e7       	ldi	r30, 0x72	; 114
+ 160:	f0 e0       	ldi	r31, 0x00	; 0
+ 162:	32 83       	std	Z+2, r19	; 0x02
+ 164:	21 83       	std	Z+1, r18	; 0x01
+	this->pin = pin_buff;
+ 166:	90 83       	st	Z, r25
+	state = led_off;
+ 168:	83 83       	std	Z+3, r24	; 0x03
+	this->pin = 0;
+}
+
+void Led::setup(volatile uint8_t &reg_buff, uint8_t pin_buff)
+{
+	this->reg = (uint8_t*)&reg_buff;
+ 16a:	ee e6       	ldi	r30, 0x6E	; 110
+ 16c:	f0 e0       	ldi	r31, 0x00	; 0
+ 16e:	25 e3       	ldi	r18, 0x35	; 53
+ 170:	30 e0       	ldi	r19, 0x00	; 0
+ 172:	32 83       	std	Z+2, r19	; 0x02
+ 174:	21 83       	std	Z+1, r18	; 0x01
+	this->pin = pin_buff;
+ 176:	c2 e0       	ldi	r28, 0x02	; 2
+ 178:	c0 83       	st	Z, r28
+	state = led_off;
+ 17a:	83 83       	std	Z+3, r24	; 0x03
+	this->pin = 0;
+}
+
+void Led::setup(volatile uint8_t &reg_buff, uint8_t pin_buff)
+{
+	this->reg = (uint8_t*)&reg_buff;
+ 17c:	ea e6       	ldi	r30, 0x6A	; 106
+ 17e:	f0 e0       	ldi	r31, 0x00	; 0
+ 180:	32 83       	std	Z+2, r19	; 0x02
+ 182:	21 83       	std	Z+1, r18	; 0x01
+	this->pin = pin_buff;
+ 184:	90 83       	st	Z, r25
+	state = led_off;
+ 186:	83 83       	std	Z+3, r24	; 0x03
+	this->pin = 0;
+}
+
+void Pin::setup(volatile uint8_t &reg_buff, uint8_t pin_buff)
+{
+	this->reg = (uint8_t*)&reg_buff;
+ 188:	e7 e6       	ldi	r30, 0x67	; 103
+ 18a:	f0 e0       	ldi	r31, 0x00	; 0
+ 18c:	23 e3       	ldi	r18, 0x33	; 51
+ 18e:	30 e0       	ldi	r19, 0x00	; 0
+ 190:	32 83       	std	Z+2, r19	; 0x02
+ 192:	21 83       	std	Z+1, r18	; 0x01
+	this->pin = pin_buff;
+ 194:	80 83       	st	Z, r24
+	this->pin = 0;
+}
+
+void Pin::setup(volatile uint8_t &reg_buff, uint8_t pin_buff)
+{
+	this->reg = (uint8_t*)&reg_buff;
+ 196:	e4 e6       	ldi	r30, 0x64	; 100
+ 198:	f0 e0       	ldi	r31, 0x00	; 0
+ 19a:	32 83       	std	Z+2, r19	; 0x02
+ 19c:	21 83       	std	Z+1, r18	; 0x01
+	this->pin = pin_buff;
+ 19e:	10 82       	st	Z, r1
+	led_B.setup(PORTC, 3);
+	
+	photo_transistor_1.setup(PINC, 1);
+	photo_transistor_2.setup(PINC, 0);
+	
+	led_A.off();
+ 1a0:	8e e6       	ldi	r24, 0x6E	; 110
+ 1a2:	90 e0       	ldi	r25, 0x00	; 0
+ 1a4:	8e df       	rcall	.-228    	; 0xc2 <_ZN3Led3offEv>
+	led_B.off();
+ 1a6:	8a e6       	ldi	r24, 0x6A	; 106
+ 1a8:	90 e0       	ldi	r25, 0x00	; 0
+ 1aa:	8b df       	rcall	.-234    	; 0xc2 <_ZN3Led3offEv>
+	this->pin = 0;
+}
+
+void Pin::setup(volatile uint8_t &reg_buff, uint8_t pin_buff)
+{
+	this->reg = (uint8_t*)&reg_buff;
+ 1ac:	e1 e6       	ldi	r30, 0x61	; 97
+ 1ae:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b0:	80 e3       	ldi	r24, 0x30	; 48
+ 1b2:	90 e0       	ldi	r25, 0x00	; 0
+ 1b4:	92 83       	std	Z+2, r25	; 0x02
+ 1b6:	81 83       	std	Z+1, r24	; 0x01
+	this->pin = pin_buff;
+ 1b8:	c0 83       	st	Z, r28
+				laser_2.off();
+				gate_state = active;
+			}
+			else
+			{
+				gate_state = active;
+ 1ba:	d1 e0       	ldi	r29, 0x01	; 1
+// 		else led_A.off();
+// 		if (photo_transistor_2.readState()) led_B.on();
+// 		else led_B.off();
+		
+		//checking stuff
+		if(recived_byte == 'm') 
+ 1bc:	80 91 93 00 	lds	r24, 0x0093	; 0x800093 <recived_byte>
+ 1c0:	8d 36       	cpi	r24, 0x6D	; 109
+ 1c2:	29 f4       	brne	.+10     	; 0x1ce <main+0xa6>
+		{
+			laser_1.switchState();
+ 1c4:	86 e7       	ldi	r24, 0x76	; 118
+ 1c6:	90 e0       	ldi	r25, 0x00	; 0
+ 1c8:	8e df       	rcall	.-228    	; 0xe6 <_ZN3Led11switchStateEv>
+			recived_byte = 0;
+ 1ca:	10 92 93 00 	sts	0x0093, r1	; 0x800093 <recived_byte>
+		}
+		if(recived_byte == 'n') 
+ 1ce:	80 91 93 00 	lds	r24, 0x0093	; 0x800093 <recived_byte>
+ 1d2:	8e 36       	cpi	r24, 0x6E	; 110
+ 1d4:	09 f0       	breq	.+2      	; 0x1d8 <main+0xb0>
+ 1d6:	e2 c0       	rjmp	.+452    	; 0x39c <main+0x274>
+		{
+			laser_2.switchState();
+ 1d8:	82 e7       	ldi	r24, 0x72	; 114
+ 1da:	90 e0       	ldi	r25, 0x00	; 0
+ 1dc:	84 df       	rcall	.-248    	; 0xe6 <_ZN3Led11switchStateEv>
+			recived_byte = 0;
+ 1de:	10 92 93 00 	sts	0x0093, r1	; 0x800093 <recived_byte>
+		}
+		if(recived_byte == 'c')
+ 1e2:	80 91 93 00 	lds	r24, 0x0093	; 0x800093 <recived_byte>
+ 1e6:	83 36       	cpi	r24, 0x63	; 99
+ 1e8:	09 f0       	breq	.+2      	; 0x1ec <main+0xc4>
+ 1ea:	7b c0       	rjmp	.+246    	; 0x2e2 <main+0x1ba>
+		{
+			laser_1.on();
+ 1ec:	86 e7       	ldi	r24, 0x76	; 118
+ 1ee:	90 e0       	ldi	r25, 0x00	; 0
+ 1f0:	58 df       	rcall	.-336    	; 0xa2 <_ZN3Led2onEv>
+			buff = 0;
+ 1f2:	10 92 8e 00 	sts	0x008E, r1	; 0x80008e <buff>
+ 1f6:	10 92 8f 00 	sts	0x008F, r1	; 0x80008f <buff+0x1>
+ 1fa:	10 92 90 00 	sts	0x0090, r1	; 0x800090 <buff+0x2>
+ 1fe:	10 92 91 00 	sts	0x0091, r1	; 0x800091 <buff+0x3>
+//////////////////////////////////////////////////////////////////////////
+/*								   MAIN									*/
+//////////////////////////////////////////////////////////////////////////
+
+int main(void)
+{
+ 202:	c1 2c       	mov	r12, r1
+ 204:	d1 2c       	mov	r13, r1
+ 206:	76 01       	movw	r14, r12
+ 208:	c3 94       	inc	r12
+		{
+			laser_1.on();
+			buff = 0;
+			while (buff < check_timeout)
+			{
+				if(!photo_transistor_1.readState())
+ 20a:	87 e6       	ldi	r24, 0x67	; 103
+ 20c:	90 e0       	ldi	r25, 0x00	; 0
+ 20e:	77 df       	rcall	.-274    	; 0xfe <_ZN3Pin9readStateEv>
+ 210:	81 11       	cpse	r24, r1
+ 212:	11 c0       	rjmp	.+34     	; 0x236 <main+0x10e>
+				{
+					uartSendByte('1');
+ 214:	81 e3       	ldi	r24, 0x31	; 49
+ 216:	84 df       	rcall	.-248    	; 0x120 <_Z12uartSendByteh>
+					break;
+				}
+				else buff++;
+			}
+			if(buff >= check_timeout) uartSendByte('0');
+ 218:	80 91 8e 00 	lds	r24, 0x008E	; 0x80008e <buff>
+ 21c:	90 91 8f 00 	lds	r25, 0x008F	; 0x80008f <buff+0x1>
+ 220:	a0 91 90 00 	lds	r26, 0x0090	; 0x800090 <buff+0x2>
+ 224:	b0 91 91 00 	lds	r27, 0x0091	; 0x800091 <buff+0x3>
+ 228:	84 36       	cpi	r24, 0x64	; 100
+ 22a:	91 05       	cpc	r25, r1
+ 22c:	a1 05       	cpc	r26, r1
+ 22e:	b1 05       	cpc	r27, r1
+ 230:	08 f4       	brcc	.+2      	; 0x234 <main+0x10c>
+ 232:	ba c0       	rjmp	.+372    	; 0x3a8 <main+0x280>
+ 234:	13 c0       	rjmp	.+38     	; 0x25c <main+0x134>
+				if(!photo_transistor_1.readState())
+				{
+					uartSendByte('1');
+					break;
+				}
+				else buff++;
+ 236:	c0 92 8e 00 	sts	0x008E, r12	; 0x80008e <buff>
+ 23a:	d0 92 8f 00 	sts	0x008F, r13	; 0x80008f <buff+0x1>
+ 23e:	e0 92 90 00 	sts	0x0090, r14	; 0x800090 <buff+0x2>
+ 242:	f0 92 91 00 	sts	0x0091, r15	; 0x800091 <buff+0x3>
+ 246:	8f ef       	ldi	r24, 0xFF	; 255
+ 248:	c8 1a       	sub	r12, r24
+ 24a:	d8 0a       	sbc	r13, r24
+ 24c:	e8 0a       	sbc	r14, r24
+ 24e:	f8 0a       	sbc	r15, r24
+		}
+		if(recived_byte == 'c')
+		{
+			laser_1.on();
+			buff = 0;
+			while (buff < check_timeout)
+ 250:	95 e6       	ldi	r25, 0x65	; 101
+ 252:	c9 16       	cp	r12, r25
+ 254:	d1 04       	cpc	r13, r1
+ 256:	e1 04       	cpc	r14, r1
+ 258:	f1 04       	cpc	r15, r1
+ 25a:	b9 f6       	brne	.-82     	; 0x20a <main+0xe2>
+					uartSendByte('1');
+					break;
+				}
+				else buff++;
+			}
+			if(buff >= check_timeout) uartSendByte('0');
+ 25c:	80 e3       	ldi	r24, 0x30	; 48
+ 25e:	60 df       	rcall	.-320    	; 0x120 <_Z12uartSendByteh>
+			laser_1.off();
+ 260:	86 e7       	ldi	r24, 0x76	; 118
+ 262:	90 e0       	ldi	r25, 0x00	; 0
+ 264:	2e df       	rcall	.-420    	; 0xc2 <_ZN3Led3offEv>
+			
+			laser_2.on();
+ 266:	82 e7       	ldi	r24, 0x72	; 114
+ 268:	90 e0       	ldi	r25, 0x00	; 0
+ 26a:	1b df       	rcall	.-458    	; 0xa2 <_ZN3Led2onEv>
+			buff = 0;
+ 26c:	10 92 8e 00 	sts	0x008E, r1	; 0x80008e <buff>
+ 270:	10 92 8f 00 	sts	0x008F, r1	; 0x80008f <buff+0x1>
+ 274:	10 92 90 00 	sts	0x0090, r1	; 0x800090 <buff+0x2>
+ 278:	10 92 91 00 	sts	0x0091, r1	; 0x800091 <buff+0x3>
+//////////////////////////////////////////////////////////////////////////
+/*								   MAIN									*/
+//////////////////////////////////////////////////////////////////////////
+
+int main(void)
+{
+ 27c:	c1 2c       	mov	r12, r1
+ 27e:	d1 2c       	mov	r13, r1
+ 280:	76 01       	movw	r14, r12
+ 282:	c3 94       	inc	r12
+			
+			laser_2.on();
+			buff = 0;
+			while (buff < check_timeout)
+			{
+				if(!photo_transistor_2.readState())
+ 284:	84 e6       	ldi	r24, 0x64	; 100
+ 286:	90 e0       	ldi	r25, 0x00	; 0
+ 288:	3a df       	rcall	.-396    	; 0xfe <_ZN3Pin9readStateEv>
+ 28a:	81 11       	cpse	r24, r1
+ 28c:	10 c0       	rjmp	.+32     	; 0x2ae <main+0x186>
+				{
+					uartSendByte('1');
+ 28e:	81 e3       	ldi	r24, 0x31	; 49
+ 290:	47 df       	rcall	.-370    	; 0x120 <_Z12uartSendByteh>
+					break;
+				}
+				else buff++;
+			}
+			if(buff >= check_timeout) uartSendByte('0');
+ 292:	80 91 8e 00 	lds	r24, 0x008E	; 0x80008e <buff>
+ 296:	90 91 8f 00 	lds	r25, 0x008F	; 0x80008f <buff+0x1>
+ 29a:	a0 91 90 00 	lds	r26, 0x0090	; 0x800090 <buff+0x2>
+ 29e:	b0 91 91 00 	lds	r27, 0x0091	; 0x800091 <buff+0x3>
+ 2a2:	84 36       	cpi	r24, 0x64	; 100
+ 2a4:	91 05       	cpc	r25, r1
+ 2a6:	a1 05       	cpc	r26, r1
+ 2a8:	b1 05       	cpc	r27, r1
+ 2aa:	b0 f0       	brcs	.+44     	; 0x2d8 <main+0x1b0>
+ 2ac:	13 c0       	rjmp	.+38     	; 0x2d4 <main+0x1ac>
+				if(!photo_transistor_2.readState())
+				{
+					uartSendByte('1');
+					break;
+				}
+				else buff++;
+ 2ae:	c0 92 8e 00 	sts	0x008E, r12	; 0x80008e <buff>
+ 2b2:	d0 92 8f 00 	sts	0x008F, r13	; 0x80008f <buff+0x1>
+ 2b6:	e0 92 90 00 	sts	0x0090, r14	; 0x800090 <buff+0x2>
+ 2ba:	f0 92 91 00 	sts	0x0091, r15	; 0x800091 <buff+0x3>
+ 2be:	8f ef       	ldi	r24, 0xFF	; 255
+ 2c0:	c8 1a       	sub	r12, r24
+ 2c2:	d8 0a       	sbc	r13, r24
+ 2c4:	e8 0a       	sbc	r14, r24
+ 2c6:	f8 0a       	sbc	r15, r24
+			if(buff >= check_timeout) uartSendByte('0');
+			laser_1.off();
+			
+			laser_2.on();
+			buff = 0;
+			while (buff < check_timeout)
+ 2c8:	95 e6       	ldi	r25, 0x65	; 101
+ 2ca:	c9 16       	cp	r12, r25
+ 2cc:	d1 04       	cpc	r13, r1
+ 2ce:	e1 04       	cpc	r14, r1
+ 2d0:	f1 04       	cpc	r15, r1
+ 2d2:	c1 f6       	brne	.-80     	; 0x284 <main+0x15c>
+					uartSendByte('1');
+					break;
+				}
+				else buff++;
+			}
+			if(buff >= check_timeout) uartSendByte('0');
+ 2d4:	80 e3       	ldi	r24, 0x30	; 48
+ 2d6:	24 df       	rcall	.-440    	; 0x120 <_Z12uartSendByteh>
+			laser_2.off();
+ 2d8:	82 e7       	ldi	r24, 0x72	; 114
+ 2da:	90 e0       	ldi	r25, 0x00	; 0
+ 2dc:	f2 de       	rcall	.-540    	; 0xc2 <_ZN3Led3offEv>
+			
+			recived_byte = 0;
+ 2de:	10 92 93 00 	sts	0x0093, r1	; 0x800093 <recived_byte>
+		}
+		if(recived_byte == 'r')
+ 2e2:	80 91 93 00 	lds	r24, 0x0093	; 0x800093 <recived_byte>
+ 2e6:	82 37       	cpi	r24, 0x72	; 114
+ 2e8:	d1 f4       	brne	.+52     	; 0x31e <main+0x1f6>
+		{
+			if(gate_state != inactive)
+ 2ea:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+ 2ee:	88 23       	and	r24, r24
+ 2f0:	49 f0       	breq	.+18     	; 0x304 <main+0x1dc>
+			{
+				laser_1.on();
+ 2f2:	86 e7       	ldi	r24, 0x76	; 118
+ 2f4:	90 e0       	ldi	r25, 0x00	; 0
+ 2f6:	d5 de       	rcall	.-598    	; 0xa2 <_ZN3Led2onEv>
+				laser_2.off();
+ 2f8:	82 e7       	ldi	r24, 0x72	; 114
+ 2fa:	90 e0       	ldi	r25, 0x00	; 0
+ 2fc:	e2 de       	rcall	.-572    	; 0xc2 <_ZN3Led3offEv>
+				gate_state = active;
+ 2fe:	d0 93 60 00 	sts	0x0060, r29	; 0x800060 <_edata>
+ 302:	0b c0       	rjmp	.+22     	; 0x31a <main+0x1f2>
+			}
+			else
+			{
+				gate_state = active;
+ 304:	d0 93 60 00 	sts	0x0060, r29	; 0x800060 <_edata>
+				laser_1.on();
+ 308:	86 e7       	ldi	r24, 0x76	; 118
+ 30a:	90 e0       	ldi	r25, 0x00	; 0
+ 30c:	ca de       	rcall	.-620    	; 0xa2 <_ZN3Led2onEv>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 30e:	83 ec       	ldi	r24, 0xC3	; 195
+ 310:	99 e0       	ldi	r25, 0x09	; 9
+ 312:	01 97       	sbiw	r24, 0x01	; 1
+ 314:	f1 f7       	brne	.-4      	; 0x312 <main+0x1ea>
+ 316:	00 c0       	rjmp	.+0      	; 0x318 <main+0x1f0>
+ 318:	00 00       	nop
+				_delay_ms(laser_booting_time);			// give it some time to switch
+			}
+			recived_byte = 0;
+ 31a:	10 92 93 00 	sts	0x0093, r1	; 0x800093 <recived_byte>
+		}
+		if((gate_state == active) && photo_transistor_1.readState())
+ 31e:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+ 322:	81 30       	cpi	r24, 0x01	; 1
+ 324:	b1 f4       	brne	.+44     	; 0x352 <main+0x22a>
+ 326:	87 e6       	ldi	r24, 0x67	; 103
+ 328:	90 e0       	ldi	r25, 0x00	; 0
+ 32a:	e9 de       	rcall	.-558    	; 0xfe <_ZN3Pin9readStateEv>
+ 32c:	88 23       	and	r24, r24
+ 32e:	09 f4       	brne	.+2      	; 0x332 <main+0x20a>
+ 330:	45 cf       	rjmp	.-374    	; 0x1bc <main+0x94>
+		{
+			gate_state = start;
+ 332:	c0 93 60 00 	sts	0x0060, r28	; 0x800060 <_edata>
+			uartSendByte('s');		// send info to computer 's'tart measurement
+ 336:	83 e7       	ldi	r24, 0x73	; 115
+ 338:	f3 de       	rcall	.-538    	; 0x120 <_Z12uartSendByteh>
+			laser_1.off();			// give it some time to switch
+ 33a:	86 e7       	ldi	r24, 0x76	; 118
+ 33c:	90 e0       	ldi	r25, 0x00	; 0
+ 33e:	c1 de       	rcall	.-638    	; 0xc2 <_ZN3Led3offEv>
+			laser_2.on();			// same here
+ 340:	82 e7       	ldi	r24, 0x72	; 114
+ 342:	90 e0       	ldi	r25, 0x00	; 0
+ 344:	ae de       	rcall	.-676    	; 0xa2 <_ZN3Led2onEv>
+ 346:	83 ec       	ldi	r24, 0xC3	; 195
+ 348:	99 e0       	ldi	r25, 0x09	; 9
+ 34a:	01 97       	sbiw	r24, 0x01	; 1
+ 34c:	f1 f7       	brne	.-4      	; 0x34a <main+0x222>
+ 34e:	00 c0       	rjmp	.+0      	; 0x350 <main+0x228>
+ 350:	00 00       	nop
+			_delay_ms(laser_booting_time);
+		}
+		if((gate_state == start) && photo_transistor_2.readState())
+ 352:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+ 356:	82 30       	cpi	r24, 0x02	; 2
+ 358:	09 f0       	breq	.+2      	; 0x35c <main+0x234>
+ 35a:	30 cf       	rjmp	.-416    	; 0x1bc <main+0x94>
+ 35c:	84 e6       	ldi	r24, 0x64	; 100
+ 35e:	90 e0       	ldi	r25, 0x00	; 0
+ 360:	ce de       	rcall	.-612    	; 0xfe <_ZN3Pin9readStateEv>
+ 362:	88 23       	and	r24, r24
+ 364:	09 f4       	brne	.+2      	; 0x368 <main+0x240>
+ 366:	2a cf       	rjmp	.-428    	; 0x1bc <main+0x94>
+		{
+			gate_state = inactive;
+ 368:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <_edata>
+			uartSendByte('f');		// send info to computer 'f'inish measurement
+ 36c:	86 e6       	ldi	r24, 0x66	; 102
+ 36e:	d8 de       	rcall	.-592    	; 0x120 <_Z12uartSendByteh>
+			laser_2.off();
+ 370:	82 e7       	ldi	r24, 0x72	; 114
+ 372:	90 e0       	ldi	r25, 0x00	; 0
+ 374:	a6 de       	rcall	.-692    	; 0xc2 <_ZN3Led3offEv>
+ 376:	83 ec       	ldi	r24, 0xC3	; 195
+ 378:	99 e0       	ldi	r25, 0x09	; 9
+ 37a:	01 97       	sbiw	r24, 0x01	; 1
+ 37c:	f1 f7       	brne	.-4      	; 0x37a <main+0x252>
+ 37e:	00 c0       	rjmp	.+0      	; 0x380 <main+0x258>
+ 380:	00 00       	nop
+ 382:	1c cf       	rjmp	.-456    	; 0x1bc <main+0x94>
+			laser_2.switchState();
+			recived_byte = 0;
+		}
+		if(recived_byte == 'c')
+		{
+			laser_1.on();
+ 384:	86 e7       	ldi	r24, 0x76	; 118
+ 386:	90 e0       	ldi	r25, 0x00	; 0
+ 388:	8c de       	rcall	.-744    	; 0xa2 <_ZN3Led2onEv>
+			buff = 0;
+ 38a:	10 92 8e 00 	sts	0x008E, r1	; 0x80008e <buff>
+ 38e:	10 92 8f 00 	sts	0x008F, r1	; 0x80008f <buff+0x1>
+ 392:	10 92 90 00 	sts	0x0090, r1	; 0x800090 <buff+0x2>
+ 396:	10 92 91 00 	sts	0x0091, r1	; 0x800091 <buff+0x3>
+ 39a:	33 cf       	rjmp	.-410    	; 0x202 <main+0xda>
+		if(recived_byte == 'n') 
+		{
+			laser_2.switchState();
+			recived_byte = 0;
+		}
+		if(recived_byte == 'c')
+ 39c:	80 91 93 00 	lds	r24, 0x0093	; 0x800093 <recived_byte>
+ 3a0:	83 36       	cpi	r24, 0x63	; 99
+ 3a2:	09 f0       	breq	.+2      	; 0x3a6 <main+0x27e>
+ 3a4:	9e cf       	rjmp	.-196    	; 0x2e2 <main+0x1ba>
+ 3a6:	ee cf       	rjmp	.-36     	; 0x384 <main+0x25c>
+					break;
+				}
+				else buff++;
+			}
+			if(buff >= check_timeout) uartSendByte('0');
+			laser_1.off();
+ 3a8:	86 e7       	ldi	r24, 0x76	; 118
+ 3aa:	90 e0       	ldi	r25, 0x00	; 0
+ 3ac:	8a de       	rcall	.-748    	; 0xc2 <_ZN3Led3offEv>
+			
+			laser_2.on();
+ 3ae:	82 e7       	ldi	r24, 0x72	; 114
+ 3b0:	90 e0       	ldi	r25, 0x00	; 0
+ 3b2:	77 de       	rcall	.-786    	; 0xa2 <_ZN3Led2onEv>
+			buff = 0;
+ 3b4:	10 92 8e 00 	sts	0x008E, r1	; 0x80008e <buff>
+ 3b8:	10 92 8f 00 	sts	0x008F, r1	; 0x80008f <buff+0x1>
+ 3bc:	10 92 90 00 	sts	0x0090, r1	; 0x800090 <buff+0x2>
+ 3c0:	10 92 91 00 	sts	0x0091, r1	; 0x800091 <buff+0x3>
+ 3c4:	5b cf       	rjmp	.-330    	; 0x27c <main+0x154>
+
+000003c6 <__vector_3>:
+//////////////////////////////////////////////////////////////////////////
+/*						        INTERRUPTS								*/
+//////////////////////////////////////////////////////////////////////////
+
+ISR(TIMER2_COMP_vect)
+{
+ 3c6:	1f 92       	push	r1
+ 3c8:	0f 92       	push	r0
+ 3ca:	0f b6       	in	r0, 0x3f	; 63
+ 3cc:	0f 92       	push	r0
+ 3ce:	11 24       	eor	r1, r1
+ 3d0:	2f 93       	push	r18
+ 3d2:	3f 93       	push	r19
+ 3d4:	4f 93       	push	r20
+ 3d6:	5f 93       	push	r21
+ 3d8:	6f 93       	push	r22
+ 3da:	7f 93       	push	r23
+ 3dc:	8f 93       	push	r24
+ 3de:	9f 93       	push	r25
+ 3e0:	af 93       	push	r26
+ 3e2:	bf 93       	push	r27
+ 3e4:	ef 93       	push	r30
+ 3e6:	ff 93       	push	r31
+	time_counter.increment();
+ 3e8:	86 e8       	ldi	r24, 0x86	; 134
+ 3ea:	90 e0       	ldi	r25, 0x00	; 0
+ 3ec:	38 de       	rcall	.-912    	; 0x5e <_ZNV11TimeCounter9incrementEv>
+}
+ 3ee:	ff 91       	pop	r31
+ 3f0:	ef 91       	pop	r30
+ 3f2:	bf 91       	pop	r27
+ 3f4:	af 91       	pop	r26
+ 3f6:	9f 91       	pop	r25
+ 3f8:	8f 91       	pop	r24
+ 3fa:	7f 91       	pop	r23
+ 3fc:	6f 91       	pop	r22
+ 3fe:	5f 91       	pop	r21
+ 400:	4f 91       	pop	r20
+ 402:	3f 91       	pop	r19
+ 404:	2f 91       	pop	r18
+ 406:	0f 90       	pop	r0
+ 408:	0f be       	out	0x3f, r0	; 63
+ 40a:	0f 90       	pop	r0
+ 40c:	1f 90       	pop	r1
+ 40e:	18 95       	reti
+
+00000410 <__vector_11>:
+
+ISR(USART_RXC_vect)
+{
+ 410:	1f 92       	push	r1
+ 412:	0f 92       	push	r0
+ 414:	0f b6       	in	r0, 0x3f	; 63
+ 416:	0f 92       	push	r0
+ 418:	11 24       	eor	r1, r1
+ 41a:	8f 93       	push	r24
+	else return false;
+}
+
+uint8_t uartReciveByte()
+{
+	return (uint8_t)UDR;
+ 41c:	8c b1       	in	r24, 0x0c	; 12
+	time_counter.increment();
+}
+
+ISR(USART_RXC_vect)
+{
+	recived_byte = uartReciveByte();
+ 41e:	80 93 93 00 	sts	0x0093, r24	; 0x800093 <recived_byte>
+ 422:	8f 91       	pop	r24
+ 424:	0f 90       	pop	r0
+ 426:	0f be       	out	0x3f, r0	; 63
+ 428:	0f 90       	pop	r0
+ 42a:	1f 90       	pop	r1
+ 42c:	18 95       	reti
+
+0000042e <_GLOBAL__sub_I_text>:
+/*						      DEFINICJE KLAS							*/
+//////////////////////////////////////////////////////////////////////////
+
+TimeCounter::TimeCounter()
+{
+	this->time = 0;
+ 42e:	10 92 86 00 	sts	0x0086, r1	; 0x800086 <time_counter>
+ 432:	10 92 87 00 	sts	0x0087, r1	; 0x800087 <time_counter+0x1>
+ 436:	10 92 88 00 	sts	0x0088, r1	; 0x800088 <time_counter+0x2>
+ 43a:	10 92 89 00 	sts	0x0089, r1	; 0x800089 <time_counter+0x3>
+ 43e:	10 92 8a 00 	sts	0x008A, r1	; 0x80008a <time_counter+0x4>
+ 442:	10 92 8b 00 	sts	0x008B, r1	; 0x80008b <time_counter+0x5>
+ 446:	10 92 8c 00 	sts	0x008C, r1	; 0x80008c <time_counter+0x6>
+ 44a:	10 92 8d 00 	sts	0x008D, r1	; 0x80008d <time_counter+0x7>
+const uint32_t laser_booting_time = 10;
+const uint32_t check_timeout = 100;
+
+volatile TimeCounter time_counter;
+
+Timer timer;
+ 44e:	8a e7       	ldi	r24, 0x7A	; 122
+ 450:	90 e0       	ldi	r25, 0x00	; 0
+ 452:	19 de       	rcall	.-974    	; 0x86 <_ZN5TimerC1Ev>
+	return buff;
+}
+
+Led::Led()
+{
+	this->reg = 0;
+ 454:	e6 e7       	ldi	r30, 0x76	; 118
+ 456:	f0 e0       	ldi	r31, 0x00	; 0
+ 458:	12 82       	std	Z+2, r1	; 0x02
+ 45a:	11 82       	std	Z+1, r1	; 0x01
+	this->pin = 0;
+ 45c:	10 82       	st	Z, r1
+	return buff;
+}
+
+Led::Led()
+{
+	this->reg = 0;
+ 45e:	e2 e7       	ldi	r30, 0x72	; 114
+ 460:	f0 e0       	ldi	r31, 0x00	; 0
+ 462:	12 82       	std	Z+2, r1	; 0x02
+ 464:	11 82       	std	Z+1, r1	; 0x01
+	this->pin = 0;
+ 466:	10 82       	st	Z, r1
+	return buff;
+}
+
+Led::Led()
+{
+	this->reg = 0;
+ 468:	ee e6       	ldi	r30, 0x6E	; 110
+ 46a:	f0 e0       	ldi	r31, 0x00	; 0
+ 46c:	12 82       	std	Z+2, r1	; 0x02
+ 46e:	11 82       	std	Z+1, r1	; 0x01
+	this->pin = 0;
+ 470:	10 82       	st	Z, r1
+	return buff;
+}
+
+Led::Led()
+{
+	this->reg = 0;
+ 472:	ea e6       	ldi	r30, 0x6A	; 106
+ 474:	f0 e0       	ldi	r31, 0x00	; 0
+ 476:	12 82       	std	Z+2, r1	; 0x02
+ 478:	11 82       	std	Z+1, r1	; 0x01
+	this->pin = 0;
+ 47a:	10 82       	st	Z, r1
+	else if(state == led_off) this->on();
+}
+
+Pin::Pin()
+{
+	this->reg = 0;
+ 47c:	e7 e6       	ldi	r30, 0x67	; 103
+ 47e:	f0 e0       	ldi	r31, 0x00	; 0
+ 480:	12 82       	std	Z+2, r1	; 0x02
+ 482:	11 82       	std	Z+1, r1	; 0x01
+	this->pin = 0;
+ 484:	10 82       	st	Z, r1
+	else if(state == led_off) this->on();
+}
+
+Pin::Pin()
+{
+	this->reg = 0;
+ 486:	e4 e6       	ldi	r30, 0x64	; 100
+ 488:	f0 e0       	ldi	r31, 0x00	; 0
+ 48a:	12 82       	std	Z+2, r1	; 0x02
+ 48c:	11 82       	std	Z+1, r1	; 0x01
+	this->pin = 0;
+ 48e:	10 82       	st	Z, r1
+	else if(state == led_off) this->on();
+}
+
+Pin::Pin()
+{
+	this->reg = 0;
+ 490:	e1 e6       	ldi	r30, 0x61	; 97
+ 492:	f0 e0       	ldi	r31, 0x00	; 0
+ 494:	12 82       	std	Z+2, r1	; 0x02
+ 496:	11 82       	std	Z+1, r1	; 0x01
+	this->pin = 0;
+ 498:	10 82       	st	Z, r1
+ 49a:	08 95       	ret
+
+0000049c <__adddi3_s8>:
+ 49c:	00 24       	eor	r0, r0
+ 49e:	a7 fd       	sbrc	r26, 7
+ 4a0:	00 94       	com	r0
+ 4a2:	2a 0f       	add	r18, r26
+ 4a4:	30 1d       	adc	r19, r0
+ 4a6:	40 1d       	adc	r20, r0
+ 4a8:	50 1d       	adc	r21, r0
+ 4aa:	60 1d       	adc	r22, r0
+ 4ac:	70 1d       	adc	r23, r0
+ 4ae:	80 1d       	adc	r24, r0
+ 4b0:	90 1d       	adc	r25, r0
+ 4b2:	08 95       	ret
+
+000004b4 <__tablejump2__>:
+ 4b4:	ee 0f       	add	r30, r30
+ 4b6:	ff 1f       	adc	r31, r31
+ 4b8:	05 90       	lpm	r0, Z+
+ 4ba:	f4 91       	lpm	r31, Z
+ 4bc:	e0 2d       	mov	r30, r0
+ 4be:	09 94       	ijmp
+
+000004c0 <_exit>:
+ 4c0:	f8 94       	cli
+
+000004c2 <__stop_program>:
+ 4c2:	ff cf       	rjmp	.-2      	; 0x4c2 <__stop_program>

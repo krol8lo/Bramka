@@ -1,0 +1,75 @@
+﻿<Window x:Class="interface_bramki.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:interface_bramki"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+        mc:Ignorable="d"
+        Title="Brak połączenia - Interfejs bramki v1.0" Height="800" Width="1000" ResizeMode="CanMinimize"  WindowStyle="SingleBorderWindow">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="window_background_color" Color="White"/>
+        <SolidColorBrush x:Key="font_color" Color="Black"/>
+        <!-- #1c1e21 -->
+        <!-- #d4d4d4 -->
+    </Window.Resources>
+
+    <StackPanel Background="{StaticResource window_background_color}">
+        <Menu DockPanel.Dock="Top" Background="{StaticResource window_background_color}" Foreground="{StaticResource font_color}" Margin="5">
+            <Menu.Items>
+                <MenuItem Header="Plik" Margin="5 0 5 0">
+                    <MenuItem Header="Zapisz dane" IsEnabled="False"/>
+                    <MenuItem Header="Zapisz dane jako" IsEnabled="False"/>
+                    <Separator/>
+                    <MenuItem Header="Wyjdź"/>
+                </MenuItem>
+                <MenuItem Header="Opcje" Margin="5 0 5 0">
+                    <MenuItem Header="Połącz"/>
+                    <MenuItem Header="Opcje debugowania">
+                        <MenuItem Header="Otwórz konsole"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Pomoc" Margin="5 0 5 0">
+                    <MenuItem Header="Instrukcja obsługi"/>
+                </MenuItem>
+            </Menu.Items>
+        </Menu>
+        
+        <Border Padding="10">
+            <StackPanel>
+                <TextBlock Margin="0 5 0 5" Text="Port"/>
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox x:Name="Ports" Grid.Column="0" SelectionChanged="PortsChanged">
+                    </ComboBox>
+
+                    <Button x:Name="ConnectButton" Margin="10 0 0 0" Grid.Column="1" Content="connect" Click="CB_Clicked"/>
+                    <Button x:Name="DisconnectButton" Margin="10 0 0 0" Grid.Column="2" Content="disconnect" Click="DB_Clicked"/>
+                </Grid>
+                <Canvas Height="600">
+                    <TextBlock Margin="0 5 0 5" x:Name="TimeTextBox" Text="00,000" FontWeight="Bold" FontSize="120" Canvas.Top="220" Canvas.Left="300"/>
+                </Canvas>
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="ResetButton" Margin="10 0 0 0" Grid.Column="2" Content="start" Click="RST_Clicked" IsEnabled="false"/>
+                </Grid>
+            </StackPanel>
+            
+        </Border>
+        
+    </StackPanel>
+</Window>
